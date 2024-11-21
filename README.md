@@ -10,7 +10,7 @@
 <a href="#"><img src="/images/0.gif" width="45" image'="" style="margin-right: 8px;"></a>
 </div>
 </td>
-<td style="text-align: center; padding: 30px; width: 33%; vertical-align: top;">
+<td style="text-align: center; padding: 30px; width: 33%; vertical-align: t op;">
 <span style="font-size: 24px; font-weight: bold;">Contributed to (last year)</span>
 <br><div style="display: flex; justify-content: center;">
 <a href="#"><img src="/images/0.gif" width="45" image'="" style="margin-right: 8px;"></a>
