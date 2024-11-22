@@ -2,8 +2,7 @@ name: update readme
 
 on:
   schedule:
-  - cron: 0 * * * *
-  
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -33,17 +32,30 @@ jobs:
         echo "  const page = await browser.newPage();" >> fetchHtml.js
         echo "  await page.goto('http://anything.wuaze.com');" >> fetchHtml.js  # Replace with your target URL
         echo "  const content = await page.content();" >> fetchHtml.js
-        echo "  require('fs').writeFileSync('README.md', content);" >> fetchHtml.js
+        echo "  require('fs').writeFileSync('fetchedContent.html', content);" >> fetchHtml.js
         echo "  await browser.close();" >> fetchHtml.js
         echo "}" >> fetchHtml.js
         echo "run();" >> fetchHtml.js
 
         node fetchHtml.js
 
-    - name: Commit changes to README.md
+    - name: Compare fetched content with README.md
+      id: check_diff
+      run: |
+        if diff -q README.md fetchedContent.html; then
+          echo "No changes detected in README.md"
+          echo "CHANGED=false" >> $GITHUB_ENV
+        else
+          echo "Changes detected in README.md"
+          cp fetchedContent.html README.md
+          echo "CHANGED=true" >> $GITHUB_ENV
+        fi
+
+    - name: Commit and Push if changes detected
+      if: env.CHANGED == 'true'
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add README.md
-        git commit -m "Update README from website content"
+        git commit -m "Update README"
         git push
