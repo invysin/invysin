@@ -27,7 +27,7 @@
 <a href="#"><img src="/images/0.gif" width="45" image'="" style="margin-right: 8px;"></a>
 <a href="#"><img src="/images/0.gif" width="45" image'="" style="margin-right: 8px;"></a>
 <a href="#"><img src="/images/0.gif" width="45" image'="" style="margin-right: 8px;"></a>
-<a href="#"><img src="/images/6.gif" width="45" image'="" style="margin-right: 8px;"></a>
+<a href="#"><img src="/images/7.gif" width="45" image'="" style="margin-right: 8px;"></a>
 </div>
 </td>
 </tr>
